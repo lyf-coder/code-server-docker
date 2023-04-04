@@ -14,13 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: publish docker hub
+    - name: build and publish docker hub
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: yongfeili/code-server-with-node
-          tags: latest
+          tags: $(date +%s),latest
           registry: docker.io
           dockerfile: ./code-server-with-node/Dockerfile
           directory: ./code-server-with-node/
