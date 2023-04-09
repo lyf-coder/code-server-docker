@@ -4,6 +4,9 @@ FROM linuxserver/code-server:latest
 RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo bash
 RUN sudo apt-get install -y nodejs
 
+# install make tool 
+RUN sudo apt-get install make
+
 # install pnpm
 RUN sudo npm install -g pnpm
 
