@@ -25,7 +25,7 @@ jobs:
           directory: ./code-server-with-all/
           username: yongfeili
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-     - name: build all china dev and publish docker hub
+    - name: build all china dev and publish docker hub
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: yongfeili/code-server-with-all-china
