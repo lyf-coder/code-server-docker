@@ -14,4 +14,4 @@ RUN sudo npm install -g pnpm
 RUN  sudo npm install commitizen cz-conventional-changelog -g && echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 
 # install golang
-RUN sudo apt-get install golang --fix-missing
+RUN sudo apt-get install golang --fix-missing -y

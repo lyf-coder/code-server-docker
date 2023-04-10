@@ -1,7 +1,4 @@
-FROM linuxserver/code-server:latest
-
-# install golang
-RUN sudo apt-get install golang --fix-missing
+FROM yongfeili/code-server-with-go:latest
 
 # china env
 RUN go env -w GO111MODULE=on \
