@@ -14,7 +14,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: build and publish docker hub
+    - name: build all china dev and publish docker hub
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+          image: yongfeili/code-server-with-all-china
+          tags: $(date +%s),latest
+          registry: docker.io
+          dockerfile: ./code-server-with-all/china-Dockerfile
+          directory: ./code-server-with-all/
+          username: yongfeili
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: build all dev and publish docker hub
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+          image: yongfeili/code-server-with-all
+          tags: $(date +%s),latest
+          registry: docker.io
+          dockerfile: ./code-server-with-all/Dockerfile
+          directory: ./code-server-with-all/
+          username: yongfeili
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: build nodejs dev and publish docker hub
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: yongfeili/code-server-with-node
@@ -22,6 +44,28 @@ jobs:
           registry: docker.io
           dockerfile: ./code-server-with-node/Dockerfile
           directory: ./code-server-with-node/
+          username: yongfeili
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: build golang dev and publish docker hub
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+          image: yongfeili/code-server-with-go
+          tags: $(date +%s),latest
+          registry: docker.io
+          dockerfile: ./code-server-with-go/Dockerfile
+          directory: ./code-server-with-go/
+          username: yongfeili
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: build golang china dev and publish docker hub
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+          image: yongfeili/code-server-with-go-china
+          tags: $(date +%s),latest
+          registry: docker.io
+          dockerfile: ./code-server-with-go/china-Dockerfile
+          directory: ./code-server-with-go/
           username: yongfeili
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
